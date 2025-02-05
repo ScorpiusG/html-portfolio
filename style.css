@@ -10,6 +10,16 @@ html
     color: white;
 }
 
+.underline
+{
+    text-decoration: underline;
+}
+
+.no-decor
+{
+    text-decoration: none;
+}
+
 .container-header
 {
     height: 10vh;
@@ -21,7 +31,7 @@ html
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 80vh;
+    min-height: 66vh;
     gap: 10px;
 }
 
@@ -45,5 +55,6 @@ html
     {
         display: flex;
         flex-direction: column;
+        min-height: 0;
     }
 }
