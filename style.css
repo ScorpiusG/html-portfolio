@@ -1,154 +1,47 @@
 html
 {
     color: white;
+    background-color: rgb(68, 3, 68);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-h1
+.link
 {
-    font-family: Cinzel, serif;
-}
-
-h2, p
-{
-    font-family: DM Sans, serif;
+    color: white;
 }
 
 .container-header
 {
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0)), url("./images/david-emrich-odII8BzuWU8-unsplash.jpg");
-    background-size: cover;
-    height: 800px;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    /* margin-top: -30px; */
+    height: 10vh;
+    text-align: center;
 }
 
-.container-details
+.container-main
 {
     display: flex;
-    background: linear-gradient(#5de0e6, #004aad);
-    /* min-height: 600px; */
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-    margin: 0;
-    gap: 2rem;
     justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    gap: 10px;
 }
 
 .container-footer
 {
-    background: #004aad;
-    /* display: flex; */
-    padding: 5rem;
-}
-
-.footer-image
-{
-    width: 20%;
-    float: left;
-}
-
-.footer-contact
-{
-    float: right;
+    padding: 0px 20px;
     text-align: right;
 }
 
-.footer-copyright
+.item
 {
-    clear: both;
-    text-align: left;
-    font-size: 60%;
+    padding: 1rem;
+    border-radius: 20px;
+    background-color: rgb(143, 60, 221);
 }
 
-.detail-item
-{
-    width: 26%;
-    padding: 10px;
-}
-
-.detail-item-description
-{
-    color: lightgray;
-}
-
-.img-header
-{
-    object-fit: cover;
-    width: 100%;
-}
-
-.header-content
-{
-    position: relative;
-    left: 5%;
-    top: 50%;
-    width: 80%;
-    max-width: 500px;
-}
-
-.text-bold
-{
-    font-weight: 700;
-}
-
-/* Media Query */
-/* Laptop Monitor */
-@media (max-width: 1400px)
-{
-    .footer-image
-    {
-        width: 30%;
-    }
-}
-
-/* Tablet */
-@media (max-width: 1000px)
-{
-    .container-header
-    {
-        height: 500px;
-    }
-
-    .container-details
-    {
-        padding-top: 2rem;
-        padding-bottom: 2rem;
-        gap: 1rem;
-    }
-    
-    .container-footer
-    {
-        padding: 3rem;
-    }
-    
-    .footer-image
-    {
-        width: 40%;
-    }
-}
-
-/* Mobile Landscape */
 @media (max-width: 600px)
 {
-    .container-details
+    .container-main
     {
-        display: block;
-    }
-
-    .detail-item
-    {
-        margin: 20px;
-        width: 84%;
-    }
-    
-    .container-footer
-    {
-        padding: 2rem;
-    }
-    
-    .footer-image
-    {
-        width: 40%;
+        flex-direction: column;
     }
 }

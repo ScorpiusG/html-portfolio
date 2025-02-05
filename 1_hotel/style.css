@@ -1,0 +1,154 @@
+html
+{
+    color: white;
+}
+
+h1
+{
+    font-family: Cinzel, serif;
+}
+
+h2, p
+{
+    font-family: DM Sans, serif;
+}
+
+.container-header
+{
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0)), url("./images/david-emrich-odII8BzuWU8-unsplash.jpg");
+    background-size: cover;
+    height: 800px;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    /* margin-top: -30px; */
+}
+
+.container-details
+{
+    display: flex;
+    background: linear-gradient(#5de0e6, #004aad);
+    /* min-height: 600px; */
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    margin: 0;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.container-footer
+{
+    background: #004aad;
+    /* display: flex; */
+    padding: 5rem;
+}
+
+.footer-image
+{
+    width: 20%;
+    float: left;
+}
+
+.footer-contact
+{
+    float: right;
+    text-align: right;
+}
+
+.footer-copyright
+{
+    clear: both;
+    text-align: left;
+    font-size: 60%;
+}
+
+.detail-item
+{
+    width: 26%;
+    padding: 10px;
+}
+
+.detail-item-description
+{
+    color: lightgray;
+}
+
+.img-header
+{
+    object-fit: cover;
+    width: 100%;
+}
+
+.header-content
+{
+    position: relative;
+    left: 5%;
+    top: 50%;
+    width: 80%;
+    max-width: 500px;
+}
+
+.text-bold
+{
+    font-weight: 700;
+}
+
+/* Media Query */
+/* Laptop Monitor */
+@media (max-width: 1400px)
+{
+    .footer-image
+    {
+        width: 30%;
+    }
+}
+
+/* Tablet */
+@media (max-width: 1000px)
+{
+    .container-header
+    {
+        height: 500px;
+    }
+
+    .container-details
+    {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        gap: 1rem;
+    }
+    
+    .container-footer
+    {
+        padding: 3rem;
+    }
+    
+    .footer-image
+    {
+        width: 40%;
+    }
+}
+
+/* Mobile Landscape */
+@media (max-width: 600px)
+{
+    .container-details
+    {
+        display: block;
+    }
+
+    .detail-item
+    {
+        margin: 20px;
+        width: 84%;
+    }
+    
+    .container-footer
+    {
+        padding: 2rem;
+    }
+    
+    .footer-image
+    {
+        width: 40%;
+    }
+}
