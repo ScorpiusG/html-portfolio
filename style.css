@@ -33,15 +33,17 @@ html
 
 .item
 {
+    width: 250px;
     padding: 1rem;
     border-radius: 20px;
     background-color: rgb(143, 60, 221);
 }
 
-@media (max-width: 600px)
+@media (max-width: 900px)
 {
     .container-main
     {
+        display: flex;
         flex-direction: column;
     }
 }
