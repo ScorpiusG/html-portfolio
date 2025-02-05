@@ -139,7 +139,7 @@ h2, p
     .detail-item
     {
         margin: 20px;
-        width: 84%;
+        width: fit-content;
     }
     
     .container-footer
