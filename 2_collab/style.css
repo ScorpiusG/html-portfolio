@@ -1,0 +1,41 @@
+.header-bg
+{
+    background: url("./images/header.jpg");
+    background-size: cover;
+    background-position: 100vw;
+    height: 800px;
+}
+
+.bgcolor-lightgreen
+{
+    background-color: #bcdfd1;
+}
+
+.bgcolor-darkgreen
+{
+    background-color: #294A3E;
+}
+
+/* Media Query */
+/* Laptop Monitor */
+@media (max-width: 1400px)
+{
+}
+
+/* Tablet */
+@media (max-width: 1000px)
+{
+    .header-bg
+    {
+        height: 600px;
+    }
+}
+
+/* Mobile Landscape */
+@media (max-width: 600px)
+{
+    .header-bg
+    {
+        height: 600px;
+    }
+}
