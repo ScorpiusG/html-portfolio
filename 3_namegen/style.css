@@ -1,7 +1,7 @@
 html
 {
     color: white;
-    background-color: darkmagenta;
+    background-color: rgb(53, 0, 53);
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -27,7 +27,7 @@ p
     align-items: center;
     margin: 2rem;
     border-radius: 20px;
-    background-color: blue;
+    background-color: rgb(140, 13, 151);
 }
 
 .container-sub
@@ -38,7 +38,7 @@ p
     bottom: 0;
     padding: 10px;
     z-index: 100;
-    background-color: blue;
+    background-color: rgb(140, 13, 151);
 }
 
 .container-sub-content
@@ -67,7 +67,7 @@ p
     align-items: center;
     gap: 10px;
     padding: 10px;
-    background-color: darkblue;
+    background-color: rgb(53, 0, 53);
     border-radius: 10px;
 }
 
@@ -92,7 +92,7 @@ p
     margin-bottom: 40vh;
     padding: 1rem;
     border-radius: 20px;
-    background-color: blue;
+    background-color: rgb(140, 13, 151);
 }
 
 button
@@ -106,12 +106,13 @@ button
 
 #button-generate
 {
+    background-color: darkgoldenrod;
     padding: 30px;
 }
 
 #button-reset
 {
-    background-color: darkred;
+    background-color: darkblue;
     padding: 30px;
     margin-right: 50px;
 }
