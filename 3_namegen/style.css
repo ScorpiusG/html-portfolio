@@ -119,6 +119,16 @@ button
 
 @media (max-width: 600px)
 {
+    h1
+    {
+        font-size: 24px;
+    }
+
+    h2
+    {
+        font-size: 16px;
+    }
+
     p
     {
         font-size: 120%;
@@ -138,7 +148,7 @@ button
     .container-generation-setting-card
     {
         gap: 5px;
-        padding: 5px;
+        padding: 8px;
     }
     
     .container-generation-setting-buttons
