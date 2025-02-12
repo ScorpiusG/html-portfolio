@@ -14,11 +14,36 @@
     </div>
     <div class="container-sub">
         <div class="container-sub-content">
-            <div class="container-generation-settings">
-                <!-- TODO: add input fields to configure generation settings -->
-                <p>TODO: put settings here</p>
+            <div class="container-generation-row">
+                <div class="container-generation-setting-card">
+                    <p>Name Quantity</p>
+                    <div class="container-generation-setting-buttons">
+                        <button id="button-nameQtyM"><p>-1</p></button>
+                        <button id="button-nameQtyP"><p>+1</p></button>
+                    </div>
+                    <p id="name-quantity">3</p>
+                </div>
+                <div class="container-generation-setting-card">
+                    <p>Minimum Length</p>
+                    <div class="container-generation-setting-buttons">
+                        <button id="button-nameLengthMinM"><p>-1</p></button>
+                        <button id="button-nameLengthMinP"><p>+1</p></button>
+                    </div>
+                    <p id="name-lengthmin">3</p>
+                </div>
+                <div class="container-generation-setting-card">
+                    <p>Maximum Length</p>
+                    <div class="container-generation-setting-buttons">
+                        <button id="button-nameLengthMaxM"><p>-1</p></button>
+                        <button id="button-nameLengthMaxP"><p>+1</p></button>
+                    </div>
+                    <p id="name-lengthmax">8</p>
+                </div>
             </div>
-            <button class="button-generate" type="button">Generate Name(s)</button>
+            <div class="container-generation-row">
+                <button id="button-reset" type="button"><p>Reset</p></button>
+                <button id="button-generate" type="button"><p>Generate Name(s)</p></button>
+            </div>
         </div>
     </div>
     <div class="container-list">
