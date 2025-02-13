@@ -38,6 +38,7 @@ const helpInfo = [
     ""
 ];
 let isHelpInfoDisplayed = false;
+let isDisplayingHelp = true;
 
 function getRandomVowel()
 {
@@ -58,7 +59,7 @@ function recordLastLetterTypeUsed(type)
 }
 function areLastTwoLettersEqualType(type)
 {
-    console.log(lastLetterTypeUsed[0] + " =? " + lastLetterTypeUsed[1]);
+    // console.log(lastLetterTypeUsed[0] + " =? " + lastLetterTypeUsed[1]);
     if (lastLetterTypeUsed.length === 2 &&
         lastLetterTypeUsed[0] === type &&
         lastLetterTypeUsed[0] === lastLetterTypeUsed[1])
@@ -100,6 +101,8 @@ function updateSettingsValuesDisplay()
 
 function generateName()
 {
+    if (isDisplayingHelp) return;
+
     let names = "";
     for (let index = 0; index < generatedNameQuantity; index++)
     {
@@ -118,7 +121,7 @@ function getGeneratedName()
     {
         let nextLetter;
         let nextType;
-        
+
         // Two consecutive vowels => Force consonant
         if (areLastTwoLettersEqualType("v"))
         {
@@ -155,7 +158,7 @@ function getGeneratedName()
         }
 
         // console.log(nextLetter);
-        console.log(nextType + " > " + nextLetter);
+        // console.log(nextType + " > " + nextLetter);
         recordLastLetterTypeUsed(nextType);
         generatedName += nextLetter;
     }
@@ -171,10 +174,12 @@ function displayHelp()
     // Can't display help info more than once, resets on clicking Reset button
     if (isHelpInfoDisplayed) return;
     isHelpInfoDisplayed = true;
+    isDisplayingHelp = true;
     for (let index = helpInfo.length - 1; index >= 0; index--) {
         const str = helpInfo[index];
         setTimeout(() => {
             addStringToList(str);
+            if (index === 0) isDisplayingHelp = false;
         }, ((helpInfo.length - index) * 100));
     }
 }
