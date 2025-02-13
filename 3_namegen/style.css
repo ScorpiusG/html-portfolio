@@ -3,6 +3,7 @@ html
     color: white;
     background-color: rgb(53, 0, 53);
     font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
 }
 
 h1
@@ -36,9 +37,13 @@ p
     left: 0;
     right: 0;
     bottom: 0;
-    padding: 10px;
-    z-index: 100;
+    padding: 5px;
+    margin: 2rem;
+    border-radius: 20px;
+    z-index: 1;
     background-color: rgb(140, 13, 151);
+    /* border: 1rem;
+    border-color: white; */
 }
 
 .container-sub-content
@@ -89,10 +94,10 @@ p
     justify-content: center;
     align-items: center;
     margin: 2rem;
-    margin-bottom: 40vh;
+    margin-bottom: 50vh;
     padding: 1rem;
     border-radius: 20px;
-    background-color: rgb(140, 13, 151);
+    background-color: rgb(100, 0, 100);
 }
 
 button
@@ -104,17 +109,25 @@ button
     padding: 20px;
 }
 
+.button-bottom
+{
+    padding: 30px;
+    margin: 0 1rem;
+}
+
 #button-generate
 {
     background-color: darkgoldenrod;
-    padding: 30px;
 }
 
 #button-reset
 {
     background-color: darkblue;
-    padding: 30px;
-    margin-right: 50px;
+}
+
+.text-setting
+{
+    font-size: 250%;
 }
 
 @media (max-width: 600px)
@@ -162,19 +175,21 @@ button
         margin-bottom: 50vh;
     }
 
+    .container-sub
+    {
+        margin: 0;
+        border-radius: 0;
+    }
+
     button
     {
         border-radius: 10px;
         padding: 15px;
     }
 
-    #button-generate
+    .button-bottom
     {
         padding: 20px;
-    }
-    
-    #button-reset
-    {
-        padding: 20px;
+        margin: 0 0;
     }
 }

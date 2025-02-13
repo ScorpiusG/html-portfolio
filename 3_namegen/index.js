@@ -4,10 +4,40 @@ const textNameLengthMin = document.querySelector("#name-lengthmin");
 const textNameLengthMax = document.querySelector("#name-lengthmax");
 const vowels = 'aeiou';
 const consonants = 'bcdfghjklmnpqrstvwxyz';
+const settingValueMin = 1;
+const settingValueMax = 20;
 let generatedNameQuantity = 1;
 let generatedNameLengthMin = 3;
 let generatedNameLengthMax = 8;
 let lastLetterTypeUsed = [];
+
+const helpInfo = [
+    "",
+    "",
+    "<em>HOW TO USE</em>",
+    "",
+    "Use the [-1] and [+1] buttons to change the respective settings.",
+    "Press [Generate Name(s)] to add generated names to the top here.",
+    "[Reset] wipes this list.",
+    "All names generated can be pronounced in any language accepting the Latin alphabet.",
+    "",
+    "",
+    "<em>IMPORTANT, READ THIS BEFORE USE!!!</color></em>",
+    "",
+    "There are NO FILTERS, so it's possible for this site to generate undesirable names.",
+    "As a disclaimer: YOU WILL HOLD FULL RESPONSIBILITY FOR USING ANY NAMES GENERATED HERE, AND NO ONE ELSE.",
+    "As a general rule: If an unwanted name was generated, just skip it and generate another one.",
+    "",
+    "",
+    "<em>WHY DID I MAKE THIS</em>",
+    "",
+    "This concept was originally a private Unity app I programmed in C# roughly 5 years before this public web version using Javascript.",
+    "I played a lot of games involving naming a lot of characters you create (Etrian Odyssey, Class of Heroes, etc.) and I didn't want to spend more than two minutes coming up with a name to progress in a game.",
+    "With this version in place, now anyone can access it anywhere without having to install and open the Unity app each time.",
+    "The only con is that you only need to be online in the first place to get here.",
+    ""
+];
+let isHelpInfoDisplayed = false;
 
 function getRandomVowel()
 {
@@ -39,12 +69,12 @@ function areLastTwoLettersEqualType(type)
 
 function addToNameQuantity(delta)
 {
-    generatedNameQuantity = Math.max(generatedNameQuantity + delta, 1);
+    generatedNameQuantity = Math.min(Math.max(generatedNameQuantity + delta, settingValueMin), settingValueMax);
     updateSettingsValuesDisplay();
 }
 function addToNameLengthMin(delta)
 {
-    generatedNameLengthMin = Math.max(generatedNameLengthMin + delta, 1);
+    generatedNameLengthMin = Math.min(Math.max(generatedNameLengthMin + delta, settingValueMin), settingValueMax);
     if (generatedNameLengthMin > generatedNameLengthMax)
     {
         generatedNameLengthMax = generatedNameLengthMin;
@@ -53,7 +83,7 @@ function addToNameLengthMin(delta)
 }
 function addToNameLengthMax(delta)
 {
-    generatedNameLengthMax = Math.max(generatedNameLengthMax + delta, 1);
+    generatedNameLengthMax = Math.min(Math.max(generatedNameLengthMax + delta, settingValueMin), settingValueMax);
     if (generatedNameLengthMax < generatedNameLengthMin)
     {
         generatedNameLengthMin = generatedNameLengthMax;
@@ -69,12 +99,15 @@ function updateSettingsValuesDisplay()
 
 function generateName()
 {
+    let names = "";
     for (let index = 0; index < generatedNameQuantity; index++)
     {
         const n = getGeneratedName();
         // console.log(n);
-        elementGeneratedNames.innerHTML += n + "<br />";
+        if (names.length > 0) names += ", ";
+        names += n;
     }
+    addStringToList(names);
 }
 function getGeneratedName()
 {
@@ -127,6 +160,23 @@ function getGeneratedName()
 function resetNameList()
 {
     elementGeneratedNames.innerHTML = "";
+    isHelpInfoDisplayed = false;
+}
+function displayHelp()
+{
+    // Can't display help info more than once, resets on clicking Reset button
+    if (isHelpInfoDisplayed) return;
+    isHelpInfoDisplayed = true;
+    for (let index = helpInfo.length - 1; index >= 0; index--) {
+        const str = helpInfo[index];
+        setTimeout(() => {
+            addStringToList(str);
+        }, (helpInfo.length - index) * 100);
+    }
+}
+function addStringToList(str)
+{
+    elementGeneratedNames.innerHTML = str + "<br />" + elementGeneratedNames.innerHTML;
 }
 
 document.querySelector("#button-generate").addEventListener("click", function()
@@ -136,6 +186,10 @@ document.querySelector("#button-generate").addEventListener("click", function()
 document.querySelector("#button-reset").addEventListener("click", function()
 {
     resetNameList();
+});
+document.querySelector("#button-help").addEventListener("click", function()
+{
+    displayHelp();
 });
 document.querySelector("#button-nameQtyM").addEventListener("click", function()
 {
@@ -163,3 +217,4 @@ document.querySelector("#button-nameLengthMaxP").addEventListener("click", funct
 });
 
 updateSettingsValuesDisplay();
+displayHelp();
