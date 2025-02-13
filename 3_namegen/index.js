@@ -58,6 +58,7 @@ function recordLastLetterTypeUsed(type)
 }
 function areLastTwoLettersEqualType(type)
 {
+    console.log(lastLetterTypeUsed[0] + " =? " + lastLetterTypeUsed[1]);
     if (lastLetterTypeUsed.length === 2 &&
         lastLetterTypeUsed[0] === type &&
         lastLetterTypeUsed[0] === lastLetterTypeUsed[1])
@@ -115,11 +116,9 @@ function getGeneratedName()
     let nameLength = Math.floor(Math.random() * (generatedNameLengthMax - generatedNameLengthMin + 1)) + generatedNameLengthMin;
     while (generatedName.length < nameLength)
     {
-        // 0 - 0.4999 = Vowel
-        // 0.5 - 0.9999 = Consonant
-        const typeValue = Math.random();
         let nextLetter;
         let nextType;
+        
         // Two consecutive vowels => Force consonant
         if (areLastTwoLettersEqualType("v"))
         {
@@ -127,13 +126,17 @@ function getGeneratedName()
             nextType = "c";
         }
         // Two consecutive consonants => Force vowel
-        else if (areLastTwoLettersEqualType("v"))
+        else if (areLastTwoLettersEqualType("c"))
         {
-            nextLetter = getRandomConsonant();
+            nextLetter = getRandomVowel();
             nextType = "v";
         }
         else
         {
+            // 0 - 0.4999 = Vowel
+            // 0.5 - 0.9999 = Consonant
+            const typeValue = Math.random();
+
             if (typeValue < 0.5)
             {
                 nextLetter = getRandomVowel();
@@ -152,6 +155,7 @@ function getGeneratedName()
         }
 
         // console.log(nextLetter);
+        console.log(nextType + " > " + nextLetter);
         recordLastLetterTypeUsed(nextType);
         generatedName += nextLetter;
     }
@@ -171,7 +175,7 @@ function displayHelp()
         const str = helpInfo[index];
         setTimeout(() => {
             addStringToList(str);
-        }, ((helpInfo.length - index) * 100) + 1000);
+        }, ((helpInfo.length - index) * 100));
     }
 }
 function addStringToList(str)
@@ -217,4 +221,6 @@ document.querySelector("#button-nameLengthMaxP").addEventListener("click", funct
 });
 
 updateSettingsValuesDisplay();
-displayHelp();
+setTimeout(() => {
+    displayHelp();
+}, 1000);
