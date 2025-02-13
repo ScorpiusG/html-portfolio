@@ -14,19 +14,19 @@ let lastLetterTypeUsed = [];
 const helpInfo = [
     "",
     "",
+    "<em>IMPORTANT, READ THIS BEFORE USE!!!</color></em>",
+    "",
+    "There are NO FILTERS, so it's possible for this site to generate undesirable names.",
+    "As a disclaimer: YOU WILL HOLD FULL RESPONSIBILITY FOR USING ANY NAMES GENERATED HERE, AND NO ONE ELSE.",
+    "As a general rule: If an unwanted name was generated, just skip it and generate another one.",
+    "",
+    "",
     "<em>HOW TO USE</em>",
     "",
     "Use the [-1] and [+1] buttons to change the respective settings.",
     "Press [Generate Name(s)] to add generated names to the top here.",
     "[Reset] wipes this list.",
     "All names generated can be pronounced in any language accepting the Latin alphabet.",
-    "",
-    "",
-    "<em>IMPORTANT, READ THIS BEFORE USE!!!</color></em>",
-    "",
-    "There are NO FILTERS, so it's possible for this site to generate undesirable names.",
-    "As a disclaimer: YOU WILL HOLD FULL RESPONSIBILITY FOR USING ANY NAMES GENERATED HERE, AND NO ONE ELSE.",
-    "As a general rule: If an unwanted name was generated, just skip it and generate another one.",
     "",
     "",
     "<em>WHY DID I MAKE THIS</em>",
@@ -171,7 +171,7 @@ function displayHelp()
         const str = helpInfo[index];
         setTimeout(() => {
             addStringToList(str);
-        }, (helpInfo.length - index) * 100);
+        }, ((helpInfo.length - index) * 100) + 1000);
     }
 }
 function addStringToList(str)
