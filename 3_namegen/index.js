@@ -9,6 +9,9 @@ const settingValueMax = 20;
 let generatedNameQuantity = 1;
 let generatedNameLengthMin = 3;
 let generatedNameLengthMax = 8;
+let generatedNameQuantityDefault = generatedNameQuantity;
+let generatedNameLengthMinDefault = generatedNameLengthMin;
+let generatedNameLengthMaxDefault = generatedNameLengthMax;
 let lastLetterTypeUsed = [];
 
 const helpInfo = [
@@ -28,6 +31,7 @@ const helpInfo = [
     "<em>HOW TO USE</em>",
     "",
     "Use the [-1] and [+1] buttons to change the respective settings.",
+    "Click/Tap the settings' current value to reset it to default.",
     "Press [Generate Name(s)] to add generated names to the top here.",
     "[Reset] wipes this list.",
     "All generated names can be pronounced in any language accepting the Latin alphabet.",
@@ -73,29 +77,60 @@ function areLastTwoLettersEqualType(type)
     return false;
 }
 
-function addToNameQuantity(delta)
+// Name Quantity
+function setNameQuantity(value)
 {
-    generatedNameQuantity = Math.min(Math.max(generatedNameQuantity + delta, settingValueMin), settingValueMax);
+    generatedNameQuantity = Math.min(Math.max(value, settingValueMin), settingValueMax);
     updateSettingsValuesDisplay();
 }
-function addToNameLengthMin(delta)
+function addToNameQuantity(delta)
 {
-    generatedNameLengthMin = Math.min(Math.max(generatedNameLengthMin + delta, settingValueMin), settingValueMax);
+    setNameQuantity(generatedNameQuantity + delta);
+}
+function setNameQuantityToDefault()
+{
+    setNameQuantity(generatedNameQuantityDefault);
+}
+
+// Name Minimum Length
+function setNameLengthMin(value)
+{
+    generatedNameLengthMin = Math.min(Math.max(value, settingValueMin), settingValueMax);
     if (generatedNameLengthMin > generatedNameLengthMax)
     {
         generatedNameLengthMax = generatedNameLengthMin;
     }
     updateSettingsValuesDisplay();
 }
-function addToNameLengthMax(delta)
+function addToNameLengthMin(delta)
 {
-    generatedNameLengthMax = Math.min(Math.max(generatedNameLengthMax + delta, settingValueMin), settingValueMax);
+    setNameLengthMin(generatedNameLengthMin + delta);
+}
+function setNameLengthMinToDefault()
+{
+    setNameLengthMin(generatedNameLengthMinDefault);
+}
+
+// Name Maximum Length
+function setNameLengthMax(value)
+{
+    generatedNameLengthMax = Math.min(Math.max(value, settingValueMin), settingValueMax);
     if (generatedNameLengthMax < generatedNameLengthMin)
     {
         generatedNameLengthMin = generatedNameLengthMax;
     }
     updateSettingsValuesDisplay();
 }
+function addToNameLengthMax(delta)
+{
+    setNameLengthMax(generatedNameLengthMax + delta);
+}
+function setNameLengthMaxToDefault()
+{
+    setNameLengthMax(generatedNameLengthMaxDefault);
+}
+
+// Display all settings values
 function updateSettingsValuesDisplay()
 {
     textNameQty.innerHTML = generatedNameQuantity;
@@ -209,29 +244,53 @@ document.querySelector("#button-help").addEventListener("click", function()
 {
     displayHelp();
 });
-document.querySelector("#button-nameQtyM").addEventListener("click", function()
+// document.querySelector("#button-nameQtyDefault").addEventListener("click", function()
+// {
+//     setNameQuantityToDefault();
+// });
+document.querySelector("#button-nameQtyM1").addEventListener("click", function()
 {
     addToNameQuantity(-1);
 });
-document.querySelector("#button-nameQtyP").addEventListener("click", function()
+document.querySelector("#button-nameQtyP1").addEventListener("click", function()
 {
     addToNameQuantity(1);
 });
-document.querySelector("#button-nameLengthMinM").addEventListener("click", function()
+// document.querySelector("#button-nameLengthMinDefault").addEventListener("click", function()
+// {
+//     setNameLengthMinToDefault();
+// });
+document.querySelector("#button-nameLengthMinM1").addEventListener("click", function()
 {
     addToNameLengthMin(-1);
 });
-document.querySelector("#button-nameLengthMinP").addEventListener("click", function()
+document.querySelector("#button-nameLengthMinP1").addEventListener("click", function()
 {
     addToNameLengthMin(1);
 });
-document.querySelector("#button-nameLengthMaxM").addEventListener("click", function()
+// document.querySelector("#button-nameLengthMaxDefault").addEventListener("click", function()
+// {
+//     setNameLengthMaxToDefault();
+// });
+document.querySelector("#button-nameLengthMaxM1").addEventListener("click", function()
 {
     addToNameLengthMax(-1);
 });
-document.querySelector("#button-nameLengthMaxP").addEventListener("click", function()
+document.querySelector("#button-nameLengthMaxP1").addEventListener("click", function()
 {
     addToNameLengthMax(1);
+});
+document.querySelector("#name-quantity").addEventListener("click", function()
+{
+    setNameQuantityToDefault();
+});
+document.querySelector("#name-lengthmin").addEventListener("click", function()
+{
+    setNameLengthMinToDefault();
+});
+document.querySelector("#name-lengthmax").addEventListener("click", function()
+{
+    setNameLengthMaxToDefault();
 });
 
 updateSettingsValuesDisplay();

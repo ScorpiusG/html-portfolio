@@ -130,7 +130,7 @@ button
     font-size: 250%;
 }
 
-@media (max-width: 600px)
+@media (max-width: 800px)
 {
     h1
     {
