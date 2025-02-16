@@ -30,15 +30,15 @@ const helpInfo = [
     "Use the [-1] and [+1] buttons to change the respective settings.",
     "Press [Generate Name(s)] to add generated names to the top here.",
     "[Reset] wipes this list.",
-    "All names generated can be pronounced in any language accepting the Latin alphabet.",
+    "All generated names can be pronounced in any language accepting the Latin alphabet.",
     "",
     "",
     "<em>WHY DID I MAKE THIS</em>",
     "",
     "This concept was originally a private Unity app I programmed in C# roughly 5 years before this public web version using Javascript.",
-    "I played a lot of games involving naming a lot of characters you create (Etrian Odyssey, Class of Heroes, etc.) and I didn't want to spend more than two minutes coming up with a name to progress in a game.",
+    "I played many games involving naming characters you create (Etrian Odyssey, Class of Heroes, etc.) and I didn't want to spend time and effort coming up with names to progress.",
     "With this version in place, now anyone can access it anywhere without having to install and open the Unity app each time.",
-    "The only con is that you only need to be online in the first place to get here.",
+    "The only con is that you need to be online to get here.",
     ""
 ];
 let isHelpInfoDisplayed = false;
