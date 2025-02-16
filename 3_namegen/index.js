@@ -19,6 +19,9 @@ const helpInfo = [
     "There are NO FILTERS, so it's possible for this site to generate undesirable names.",
     "As a disclaimer: YOU WILL HOLD FULL RESPONSIBILITY FOR USING ANY NAMES GENERATED HERE, AND NO ONE ELSE.",
     "As a general rule: If an unwanted name was generated, just skip it and generate another one.",
+    "All names generated on this site are 100% free to use in any circumstance as long as it's deemed acceptable: privately, publicly, and commmercially.",
+    "You cannot, however, charge anyone for using this site or the names themselves (if they're not part of something else you're selling).",
+    "These rules are subject to change when needed.",
     "",
     "",
     "<em>HOW TO USE</em>",
@@ -125,13 +128,11 @@ function getGeneratedName()
         // Two consecutive vowels => Force consonant
         if (areLastTwoLettersEqualType("v"))
         {
-            nextLetter = getRandomConsonant();
             nextType = "c";
         }
         // Two consecutive consonants => Force vowel
         else if (areLastTwoLettersEqualType("c"))
         {
-            nextLetter = getRandomVowel();
             nextType = "v";
         }
         else
@@ -142,14 +143,21 @@ function getGeneratedName()
 
             if (typeValue < 0.5)
             {
-                nextLetter = getRandomVowel();
                 nextType = "v";
             }
             else
             {
-                nextLetter = getRandomConsonant();
                 nextType = "c";
             }
+        }
+
+        if (nextType === "c")
+        {
+            nextLetter = getRandomConsonant();
+        }
+        else if (nextType === "v")
+        {
+            nextLetter = getRandomVowel();
         }
 
         if (generatedName.length == 0)
