@@ -21,6 +21,7 @@ const helpInfo = [
     "As a general rule: If an unwanted name was generated, just skip it and generate another one.",
     "All names generated on this site are 100% free to use in any circumstance as long as it's deemed acceptable: privately, publicly, and commmercially.",
     "You cannot, however, charge anyone for using this site or the names themselves (if they're not part of something else you're selling).",
+    "Credit is optional. If you do credit; please link them here or, better and if possible, to my resume/profile.",
     "These rules are subject to change when needed.",
     "",
     "",
