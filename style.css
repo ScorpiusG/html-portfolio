@@ -45,6 +45,16 @@ html
     background-color: rgb(143, 60, 221);
 }
 
+.text-grey
+{
+    color: #bbb;
+}
+
+.text-size-small
+{
+    font-size: 60%;
+}
+
 @media (max-width: 900px)
 {
     .container-main
