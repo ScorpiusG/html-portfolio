@@ -210,6 +210,8 @@ function getGeneratedName()
 }
 function resetNameList()
 {
+    if (isDisplayingHelp) return;
+
     elementGeneratedNames.innerHTML = "";
     isHelpInfoDisplayed = false;
 }
@@ -217,6 +219,7 @@ function displayHelp()
 {
     // Can't display help info more than once, resets on clicking Reset button
     if (isHelpInfoDisplayed) return;
+    
     isHelpInfoDisplayed = true;
     isDisplayingHelp = true;
     for (let index = helpInfo.length - 1; index >= 0; index--) {

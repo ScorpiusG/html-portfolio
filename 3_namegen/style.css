@@ -110,6 +110,16 @@ button
     border-radius: 10px;
     padding: 20px;
 }
+button:hover
+{
+    color: black;
+    background-color: lime;
+}
+button:active
+{
+    color: white;
+    background-color: darkgreen;
+}
 
 .button-bottom
 {
@@ -121,10 +131,28 @@ button
 {
     background-color: darkgoldenrod;
 }
+#button-generate:hover
+{
+    color: black;
+    background-color: yellow;
+}
+#button-generate:active
+{
+    background-color: rgb(112, 84, 13);
+}
 
 #button-reset
 {
     background-color: darkblue;
+}
+#button-reset:hover
+{
+    color: white;
+    background-color: blue;
+}
+#button-reset:active
+{
+    background-color: rgb(2, 2, 56);
 }
 
 .text-setting
