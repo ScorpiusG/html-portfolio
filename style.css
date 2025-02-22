@@ -10,6 +10,10 @@ html
     color: white;
     text-decoration: none;
 }
+.card-link:visited
+{
+    color: yellow;
+}
 
 .underline
 {
@@ -43,6 +47,9 @@ html
     padding: 1rem;
     border-radius: 20px;
     background-color: rgb(143, 60, 221);
+}
+.item:hover {
+    background-color: rgb(95, 39, 148);
 }
 
 .text-grey
