@@ -31,7 +31,7 @@ const helpInfo = [
     "<em>HOW TO USE</em>",
     "",
     "Use the [-1] and [+1] buttons to change the respective settings.",
-    "Click/Tap the settings' current value to reset it to default.",
+    "Click/Tap the settings' label or current value to reset its value to default.",
     "Press [Generate Name(s)] to add generated names to the top here.",
     "[Reset] wipes this list.",
     "All generated names can be pronounced in any language accepting the Latin alphabet.",
@@ -238,6 +238,7 @@ function addStringToList(str)
 document.querySelector("#button-generate").addEventListener("click", function()
 {
     generateName();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 document.querySelector("#button-reset").addEventListener("click", function()
 {
@@ -287,11 +288,23 @@ document.querySelector("#name-quantity").addEventListener("click", function()
 {
     setNameQuantityToDefault();
 });
+document.querySelector("#name-quantity-label").addEventListener("click", function()
+{
+    setNameQuantityToDefault();
+});
 document.querySelector("#name-lengthmin").addEventListener("click", function()
 {
     setNameLengthMinToDefault();
 });
+document.querySelector("#name-lengthmin-label").addEventListener("click", function()
+{
+    setNameLengthMinToDefault();
+});
 document.querySelector("#name-lengthmax").addEventListener("click", function()
+{
+    setNameLengthMaxToDefault();
+});
+document.querySelector("#name-lengthmax-label").addEventListener("click", function()
 {
     setNameLengthMaxToDefault();
 });

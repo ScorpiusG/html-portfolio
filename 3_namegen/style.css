@@ -155,9 +155,14 @@ button:active
     background-color: rgb(2, 2, 56);
 }
 
-.text-setting
+.text-setting-label
 {
     font-size: 250%;
+}
+
+.text-setting:hover
+{
+    color: darkorange;
 }
 
 @media (max-width: 800px)
