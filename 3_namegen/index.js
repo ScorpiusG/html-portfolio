@@ -235,18 +235,25 @@ function addStringToList(str)
     elementGeneratedNames.innerHTML = str + "<br />" + elementGeneratedNames.innerHTML;
 }
 
+function scrollToTop()
+{
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
 document.querySelector("#button-generate").addEventListener("click", function()
 {
     generateName();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    scrollToTop();
 });
 document.querySelector("#button-reset").addEventListener("click", function()
 {
     resetNameList();
+    scrollToTop();
 });
 document.querySelector("#button-help").addEventListener("click", function()
 {
     displayHelp();
+    scrollToTop();
 });
 // document.querySelector("#button-nameQtyDefault").addEventListener("click", function()
 // {
