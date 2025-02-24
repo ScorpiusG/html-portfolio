@@ -29,6 +29,7 @@ html
 .container-main
 {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     min-height: 66vh;
@@ -59,15 +60,24 @@ html
 
 .text-size-small
 {
-    font-size: 60%;
+    font-size: 70%;
 }
 
 @media (max-width: 900px)
 {
+    /*     
     .container-main
     {
         display: flex;
         flex-direction: column;
         min-height: 0;
+    }
+    */
+
+    .item
+    {
+        max-width: 200px;
+        padding: 1rem;
+        border-radius: 10px;
     }
 }
