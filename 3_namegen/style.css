@@ -109,6 +109,7 @@ button
     border-width: 0;
     border-radius: 10px;
     padding: 20px;
+    transition: 0.2s;
 }
 button:hover
 {
