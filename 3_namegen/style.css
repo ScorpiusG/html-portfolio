@@ -1,3 +1,8 @@
+*
+{
+    transition: 0.08s;
+}
+
 html
 {
     color: white;
@@ -109,17 +114,19 @@ button
     border-width: 0;
     border-radius: 10px;
     padding: 20px;
-    transition: 0.2s;
+    /* transition: 0.08s; */
 }
 button:hover
 {
     color: black;
     background-color: lime;
+    scale: 110%;
 }
 button:active
 {
     color: white;
     background-color: darkgreen;
+    scale: 90%;
 }
 
 .button-bottom
@@ -163,7 +170,8 @@ button:active
 
 .text-setting:hover
 {
-    color: darkorange;
+    color: rgb(153, 84, 0);
+    background-color: white;
 }
 
 @media (max-width: 800px)
