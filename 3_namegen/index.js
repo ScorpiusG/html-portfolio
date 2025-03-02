@@ -40,7 +40,7 @@ const helpInfo = [
     "<em>WHY DID I MAKE THIS</em>",
     "",
     "This concept was originally a private Unity app I programmed in C# roughly 5 years before this public web version using Javascript.",
-    "I played many games involving naming characters you create (Etrian Odyssey, Class of Heroes, etc.) and I didn't want to spend time and effort coming up with names to progress.",
+    "I played many games involving naming characters you create (Wizardry, Etrian Odyssey, etc.) and I didn't want to spend time and effort coming up with names to progress.",
     "With this version in place, now anyone can access it anywhere without having to install and open the Unity app each time.",
     "The only con is that you need to be online to get here.",
     ""
