@@ -19,8 +19,7 @@ const helpInfo = [
     "",
     "<em>IMPORTANT, READ THIS BEFORE USE!!!</color></em>",
     "",
-    "There are NO FILTERS, so it's possible for this site to generate undesirable names.",
-    "As a disclaimer: YOU WILL HOLD FULL RESPONSIBILITY FOR USING ANY NAMES GENERATED HERE, AND NO ONE ELSE.",
+    "Disclaimer: YOU WILL HOLD FULL RESPONSIBILITY FOR USING ANY NAMES GENERATED HERE, AND NO ONE ELSE.",
     "As a general rule: If an unwanted name was generated, just skip it and generate another one.",
     "All names generated on this site are 100% free to use in any circumstance as long as it's deemed acceptable: privately, publicly, and commmercially.",
     "You cannot, however, charge anyone for using this site or the names themselves (if they're not part of something else you're selling).",
@@ -156,55 +155,68 @@ function getGeneratedName()
 {
     let generatedName = "";
     let nameLength = Math.floor(Math.random() * (generatedNameLengthMax - generatedNameLengthMin + 1)) + generatedNameLengthMin;
-    while (generatedName.length < nameLength)
+    while (true)
     {
-        let nextLetter;
-        let nextType;
+        while (generatedName.length < nameLength)
+        {
+            let nextLetter;
+            let nextType;
 
-        // Two consecutive vowels => Force consonant
-        if (areLastTwoLettersEqualType("v"))
-        {
-            nextType = "c";
-        }
-        // Two consecutive consonants => Force vowel
-        else if (areLastTwoLettersEqualType("c"))
-        {
-            nextType = "v";
-        }
-        else
-        {
-            // 0 - 0.4999 = Vowel
-            // 0.5 - 0.9999 = Consonant
-            const typeValue = Math.random();
-
-            if (typeValue < 0.5)
+            // Two consecutive vowels => Force consonant
+            if (areLastTwoLettersEqualType("v"))
+            {
+                nextType = "c";
+            }
+            // Two consecutive consonants => Force vowel
+            else if (areLastTwoLettersEqualType("c"))
             {
                 nextType = "v";
             }
             else
             {
-                nextType = "c";
+                // 0 - 0.4999 = Vowel
+                // 0.5 - 0.9999 = Consonant
+                const typeValue = Math.random();
+
+                if (typeValue < 0.5)
+                {
+                    nextType = "v";
+                }
+                else
+                {
+                    nextType = "c";
+                }
             }
+
+            if (nextType === "c")
+            {
+                nextLetter = getRandomConsonant();
+            }
+            else if (nextType === "v")
+            {
+                nextLetter = getRandomVowel();
+            }
+
+            if (generatedName.length == 0)
+            {
+                nextLetter = nextLetter.toUpperCase();
+            }
+
+            // console.log(nextLetter);
+            // console.log(nextType + " > " + nextLetter);
+            recordLastLetterTypeUsed(nextType);
+            generatedName += nextLetter;
         }
 
-        if (nextType === "c")
+        if (containsBadPhrase(generatedName))
         {
-            nextLetter = getRandomConsonant();
+            // Reset name and try again.
+            generatedName = "";
         }
-        else if (nextType === "v")
+        else
         {
-            nextLetter = getRandomVowel();
+            break;
         }
-
-        if (generatedName.length == 0)
-        {
-            nextLetter = nextLetter.toUpperCase();
-        }
-
-        // console.log(nextLetter);
-        // console.log(nextType + " > " + nextLetter);
-        recordLastLetterTypeUsed(nextType);
-        generatedName += nextLetter;
     }
     return generatedName;
 }
@@ -320,3 +332,29 @@ updateSettingsValuesDisplay();
 setTimeout(() => {
     displayHelp();
 }, 1000);
+
+// Filter system
+// List of undesired/bad phrases (expand as needed)
+const BAD_PHRASES = [
+    "fuc",
+    "fuk",
+    "nig",
+    "cun",
+    "kuso",
+    "bitc",
+    "nus",
+    "naz",
+    "penis",
+    "gona",
+];
+
+/**
+ * Checks if the input string contains any undesired/bad phrases.
+ * @param {string} input - The generated name to check
+ * @returns {boolean} - True if any bad phrase is found, else false
+ */
+function containsBadPhrase(input)
+{
+    const lowerInput = input.toLowerCase();
+    return BAD_PHRASES.some(badPhrase => lowerInput.includes(badPhrase));
+}
